@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="usecase" name="Диаграмма вариантов использования">
+    <mxGraphModel dx="1400" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        
+        <mxCell id="sys" value="Прокси-сервер HTTP с кешированием" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=none;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="900" height="960" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="user" value="Пользователь" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="90" y="690" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="web" value="«внешняя система»&lt;br&gt;Веб-сервер" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="370" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="uc1" value="Отправить HTTP-запрос через прокси" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="190" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" value="Проверить запрос и протокол" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="70" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc3" value="Проверить домен по чёрному списку" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="140" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" value="Записать обращение в журнал" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="210" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc5" value="Получить ответ из кеша (HIT)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="350" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" value="Получить сообщение об ошибке (400, 403, 501, 502, 504)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="350" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uc6" value="Запросить ответ у веб-сервера (MISS)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="350" width="210" height="70" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="a1" value="Запустить прокси-сервер с параметрами" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="477" width="250" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="Остановить прокси-сервер" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384" y="545" width="250" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="Управлять чёрным списком&lt;br&gt;(добавить, удалить, просмотреть)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="403" y="617" width="250" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" value="Управлять кешем&lt;br&gt;(просмотреть, очистить)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="692" width="250" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" value="Просмотреть статистику" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="403" y="767" width="250" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" value="Наблюдать события в реальном времени" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384" y="839" width="250" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="a7" value="Просмотреть историю обращений&lt;br&gt;(желательно)" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="352" y="907" width="250" height="56" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="e_user_uc1" style="endArrow=none;html=1;" edge="1" parent="1" source="user" target="uc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_uc6_web" style="endArrow=none;html=1;" edge="1" parent="1" source="uc6" target="web">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_a1" style="endArrow=none;html=1;" edge="1" parent="1" source="admin" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_a2" style="endArrow=none;html=1;" edge="1" parent="1" source="admin" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_a3" style="endArrow=none;html=1;" edge="1" parent="1" source="admin" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_a4" style="endArrow=none;html=1;" edge="1" parent="1" source="admin" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_a5" style="endArrow=none;html=1;" edge="1" parent="1" source="admin" target="a5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_a6" style="endArrow=none;html=1;" edge="1" parent="1" source="admin" target="a6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin_a7" style="endArrow=none;html=1;" edge="1" parent="1" source="admin" target="a7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="i_uc2" value="«include»" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=11;" edge="1" parent="1" source="uc1" target="uc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i_uc3" value="«include»" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=11;" edge="1" parent="1" source="uc1" target="uc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i_uc4" value="«include»" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=11;" edge="1" parent="1" source="uc1" target="uc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="x_uc5" value="«extend»" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=11;" edge="1" parent="1" source="uc5" target="uc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x_uc7" value="«extend»" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=11;" edge="1" parent="1" source="uc7" target="uc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x_uc6" value="«extend»" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=11;" edge="1" parent="1" source="uc6" target="uc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
